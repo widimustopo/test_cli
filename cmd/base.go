@@ -10,8 +10,6 @@ import (
 var globConf models.Configurations
 
 func baseFunc(cmd *cobra.Command, args []string) {
-
 	assets.Header()
 	choose(cmd, args)
-
 }

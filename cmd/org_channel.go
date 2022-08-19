@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"test_cli/assets"
 	"test_cli/models"
 
 	"github.com/spf13/cobra"
@@ -16,7 +17,7 @@ func setChannel(cmd *cobra.Command, args []string) {
 		counterP  int = 1
 		counterO  int = 1
 	)
-
+	assets.Header()
 	fmt.Println("how many channels : ")
 	fmt.Scan(&counterC)
 	for i := 0; i < counterC; i++ {
@@ -38,6 +39,10 @@ func setChannel(cmd *cobra.Command, args []string) {
 		}
 		globConf.Channels = append(globConf.Channels, channel)
 	}
-
-	setChainCode(cmd, args)
+	fmt.Scanln()
+	fmt.Println("success input channel of organization")
+	if cmd.Name() == "test_cli" {
+		assets.Clear()
+		choose(cmd, args)
+	}
 }
